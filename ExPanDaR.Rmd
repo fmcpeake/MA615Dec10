@@ -1,0 +1,33 @@
+---
+title: "MA615 Exercise"
+author: "Fionnuala McPeake"
+date: "December 10, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# For cars
+
+```{r cars}
+install.packages("ExPanDaR")
+library(ExPanDaR)
+df <- mtcars
+df$cs_id <- row.names(df)
+df$ts_id <-1
+ExPanD(df, cs_id ="cs_id", ts_id = "ts_id",
+       components = c(trend_graph = FALSE, quantile_trend_graph = FALSE))
+```
+
+# For iris
+
+```{r pressure, echo=FALSE}
+df <- iris
+df$cs_id <- row.names(df)
+df$ts_id <-1
+ExPanD(df, cs_id ="cs_id", ts_id = "ts_id",
+       components = c(trend_graph = FALSE, quantile_trend_graph = FALSE))
+```
+
